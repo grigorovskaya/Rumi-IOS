@@ -1,7 +1,8 @@
 import React from 'react';
 import {
 	AppRegistry, 
-	View, 
+	View,
+  TouchableHighlight, 
 	Text,
 	StyleSheet
 } from 'react-native';
@@ -19,28 +20,36 @@ export default class Task extends React.Component {
       due: this.props.task.due,
       color: this.props.task.color
     };
-    console.log('TASK ', this.state);
-  }
-//TODO: refactor to get rid of second socket connection
-//move to the app level
-  completeTask () {
-    this.socket.emit('complete task', this.state.task.id);
   }
 
   render() {
   	return (
-  		<View>
-  		<Text>{this.state.name}</Text>
+  		<View style={style.box}>
+      <TouchableHighlight onPress={() => this.props.completeTask(this.state)}>
+  		<Text style={style.text}>{this.state.name}</Text>
+      </TouchableHighlight>
   		</View>
   		);
   }
 }
 
 const style = {
-  height: 50,
-  width: 50,
-  margin: 10,
-  textAlign: 'center',
-  display: 'inline-block',
-  overflow: 'hidden'
+	text: {
+		textAlign: 'center',
+		overflow: 'hidden'
+	},
+  box: {
+    height: 60,
+    width: 60,
+    margin: 10,
+    backgroundColor: "#ffffff",
+    borderRadius: 100,
+    shadowColor: "#000000",
+    shadowOpacity: 0.6,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 2,
+      width: 2
+    },
+  }
 };
