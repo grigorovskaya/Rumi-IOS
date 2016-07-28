@@ -49,9 +49,9 @@ export default class addTask extends React.Component {
 	  });
 	}
 
-	handleTextFieldChange(value) {
-	  this.setState({value});
-	}
+	// handleTextFieldChange(value) {
+	//   this.setState({value});
+	// }
 
 	// handleSelectFieldChange(e, i, v) {
 	//   this.setState({
@@ -81,7 +81,7 @@ export default class addTask extends React.Component {
 	  var value = this.refs.form.getValue();
 	  if (value) {
 	  	console.log(value);
-	  	console.log('STATE ', this.state);
+	  	this.setState({value});
 	  	//this.clearForm();
 	  }
 	  this.calcDueDateAndInterval();
@@ -108,7 +108,7 @@ export default class addTask extends React.Component {
 	render() {
 		return (
 			<View style={{marginTop: 180}}>
-			<Form ref='form' type={Task} value={this.state.value} onChange={this.handleTextFieldChange.bind(this)}/>
+			<Form ref='form' type={Task} value={this.state.value}  />
 			<TouchableHighlight onPress={() => this.handleSubmit()}>
 			<Text>Add</Text>
 			</TouchableHighlight>
