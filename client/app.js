@@ -8,6 +8,7 @@ import {
 import Task from './task.js';
 import moment from 'moment';
 import urgency from './urgency.service';
+import addTask from './addTask.js';
 
 window.navigator.userAgent = "react-native";
 var io = require('socket.io-client/socket.io');
