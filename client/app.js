@@ -8,17 +8,17 @@ import {
 import Task from './task.js';
 import moment from 'moment';
 import urgency from './urgency.service';
-import addTask from './addTask.js';
+// import addTask from './addTask.js';
 
 window.navigator.userAgent = "react-native";
-var io = require('socket.io-client/socket.io');
+// var io = require('socket.io-client/socket.io');
 // var obj = [{name: 'Conrad', dueBy: Date.now(), interval: 20, image: '', isArchived: false}];
 
 
 export default class App extends React.Component {
-	constructor() {
-	  super();
-	  this.socket = io('http://localhost:3000', {jsonp: false, transports: ['websocket']});
+	constructor(props) {
+	  super(props);
+	  this.socket = this.props.socket;
 	  this.state = {
 	    now: Date.now(),
 	    overdueTasks: [],

@@ -1,47 +1,31 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
 
 import React, { Component } from 'react';
-import Start from './start.js';
-import App from './client/app.js';
-import addTask from './client/addTask.js';
+import { Router, Scene } from 'react-native-router-flux';
+import { AppRegistry, Text } from 'react-native';
 
-import {
-  AppRegistry,
-  NavigatorIOS,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import SignIn from './client/signin';
+import SignUp from './client/signup';
+import App from './client/app';
+import AddTask from './client/addTask';
 
-class Rumi extends Component {
+// trying to see if passing socket down to components as props
+// so that no more than one socket connection on each app
+var io = require('socket.io-client/socket.io');
+var socket = io('http://localhost:3000', {jsonp: false, transports: ['websocket']});
+
+export default class Rumi extends Component {
   render() {
     return (
-     <NavigatorIOS style={{flex: 1}} initialRoute={{title: 'addTask', component: addTask}} renderScene={(route, navigator) => { <addTask />}}/>
-    );
+      <Router>
+        <Scene key="root">
+          <Scene key="signIn" component={SignIn} title="Sign In" initial={true} />
+          <Scene key="signUp" component={SignUp} title="Sign Up" />
+          <Scene key="app" component={App} title="Rumi" socket={socket} />
+          <Scene key="addTask" component={AddTask} title="Add Task" socket={socket} />
+        </Scene>
+      </Router>
+    )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 AppRegistry.registerComponent('Rumi', () => Rumi);

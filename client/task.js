@@ -8,13 +8,11 @@ import {
 } from 'react-native';
 
 window.navigator.userAgent = "react-native";
-var io = require('socket.io-client/socket.io');
 
 export default class Task extends React.Component {
   constructor(props) {
     super(props);
-    this.socket = io('http://localhost:3000', {jsonp: false, transports: ['websocket']});
-
+    
     this.state = {
       id: this.props.task.id,
       name: this.props.task.name,
