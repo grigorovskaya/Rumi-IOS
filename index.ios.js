@@ -7,6 +7,8 @@
 import React, { Component } from 'react';
 import Start from './start.js';
 import App from './client/app.js';
+import addTask from './client/addTask.js';
+
 import {
   AppRegistry,
   NavigatorIOS,
@@ -18,7 +20,7 @@ import {
 class Rumi extends Component {
   render() {
     return (
-     <NavigatorIOS style={{flex: 1}} initialRoute={{title: 'App', component: App}} renderScene={(route, navigator) => { <App />}}/>
+     <NavigatorIOS style={{flex: 1}} initialRoute={{title: 'addTask', component: addTask}} renderScene={(route, navigator) => { <addTask />}}/>
     );
   }
 }
