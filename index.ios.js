@@ -12,6 +12,7 @@ import AddTask from './client/addTask';
 // so that no more than one socket connection on each app
 var Store = require('react-native-simple-store');
 
+
 export default class Rumi extends Component {
   constructor(props) {
     super(props);

@@ -7,9 +7,11 @@ import {
 	Button,
 	StyleSheet
 } from 'react-native';
-
+import { Actions } from 'react-native-router-flux';
 window.navigator.userAgent = "react-native";
 var t = require('tcomb-form-native');
+var socket;
+var io = require('socket.io-client/socket.io');
 
 var Form = t.form.Form;
 var interval = t.enums({
@@ -26,6 +28,7 @@ var Task = t.struct({
 export default class AddTask extends React.Component {
 	constructor(props) {
 		super(props);
+		this.socket = socket;
 		this.state = {
 		//   intervalNum: 0,
 		//   intervalVal: 1,
@@ -37,17 +40,22 @@ export default class AddTask extends React.Component {
 		};
 	}
 	
-	close() {
-	  this.setState({
-	    showModal: false
-	  });
+	// close() {
+	//   // this.setState({
+	//   //   showModal: false
+	//   // });
+	// }
+
+	// open() {
+	//   this.setState({
+	//     showModal: true
+	//   });
+	// }
+	componentWillMount() {
+	  socket = io('http://localhost:3000', {jsonp: false, transports: ['websocket']});
+	  this.socket = socket;
 	}
 
-	open() {
-	  this.setState({
-	    showModal: true
-	  });
-	}
 
 	handleTextFieldChange(value) {
 	  this.setState({value});
@@ -95,7 +103,7 @@ export default class AddTask extends React.Component {
 	    return;
 	  }
 
-	  this.props.socket.emit('create task', {
+	  this.socket.emit('create task', {
 	    name: taskName,
 	    dueBy: dueDate,
 	    interval: interval
@@ -103,7 +111,7 @@ export default class AddTask extends React.Component {
 
 	  //this.props.onAddNewTask(taskName, dueDate);
 	  this.setState({value: null});
-	  this.close();
+	  Actions.app();
 	}
 	render() {
 		return (

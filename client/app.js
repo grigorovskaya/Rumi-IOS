@@ -1,6 +1,7 @@
 import React from 'react';
 import {
 	AppRegistry, 
+	ScrollView,
 	View,
 	Text,
 	StyleSheet
@@ -8,13 +9,19 @@ import {
 import Task from './task.js';
 import moment from 'moment';
 import urgency from './urgency.service';
+import ActionButton from 'react-native-action-button';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { BlurView, VibrancyView } from 'react-native-blur';
+import { Actions } from 'react-native-router-flux';
 // import addTask from './addTask.js';
 
 window.navigator.userAgent = "react-native";
 // var io = require('socket.io-client/socket.io');
-// var obj = [{name: 'Conrad', dueBy: Date.now(), interval: 20, image: '', isArchived: false}];
-var io = require('socket.io-client/socket.io');
+
+// var io = require('socket.io-client/socket.io');
+// var socket = io('http://localhost:3000', {jsonp: false, transports: ['websocket']});
 var socket;
+var io = require('socket.io-client/socket.io');
 
 export default class App extends React.Component {
 	constructor(props) {
@@ -84,8 +91,11 @@ export default class App extends React.Component {
 
 	render() {
 		return (
-			<View>
 			<View style={style.content}>
+			
+			<ScrollView automaticallyAdjustContentInsets={false}
+          horizontal={true}
+          style={[style.scrollView, style.horizontalScrollView]}>
 			{this.state.overdueTasks.map(overdueTask => {
 				return (<Task task={overdueTask} id={overdueTask.id}
                       name={overdueTask.name}
@@ -94,8 +104,10 @@ export default class App extends React.Component {
                       key={overdueTask.id}
                       completeTask={this.completeTask.bind(this)}/>);
 			})}
-			</View>
-			<View style={style.content}>
+			</ScrollView>
+			<ScrollView automaticallyAdjustContentInsets={false}
+          horizontal={true}
+          style={[style.scrollView, style.horizontalScrollView]}>
 			{this.state.recentTasks.map(recentTask => {
 				return (<Task task={recentTask} id={recentTask.id}
                       name={recentTask.name}
@@ -104,8 +116,10 @@ export default class App extends React.Component {
                       key={recentTask.id}
                       completeTask={this.completeTask.bind(this)}/>);
 			})}
-			</View>
-			<View style={style.content}>
+			</ScrollView>
+			<ScrollView automaticallyAdjustContentInsets={false}
+          horizontal={true}
+          style={[style.scrollView, style.horizontalScrollView]}>
 			{this.state.completedTasks.map(completedTask => {
 				return (<Task task={completedTask} id={completedTask.id}
                       name={completedTask.name}
@@ -114,17 +128,60 @@ export default class App extends React.Component {
                       key={completedTask.id}
                       completeTask={this.completeTask.bind(this)}/>);
 			})}
+			</ScrollView>
+			
+
+			<View style={{flex:1, backgroundColor: '#f3f3f3'}}>
+			        <ActionButton position={'center'} degrees={45} backdrop={<BlurView blurType='extra light' style={style.blur}/>} buttonColor="rgba(231,76,60,1)">
+			          <ActionButton.Item buttonColor='#9b59b6' onPress={Actions.addTask}>
+			            <Icon name="md-create" style={style.actionButtonIcon} />
+			          </ActionButton.Item>
+			          <ActionButton.Item position={'center'} buttonColor='#1abc9c' title="Completed Tasks" onPress={() => {}}>
+			          <Icon name="md-done-all" style={style.actionButtonIcon} />
+			          </ActionButton.Item>
+			        </ActionButton>
+			      </View>
 			</View>
-			</View>
+
 			);
 	}
 }
 
 const style = {
 	content: {
-		marginTop: 180, 
-		flexDirection: 'row', 
+		marginTop: 100, 
 		justifyContent: 'center',
-		maxWidth: 300
-	}
+		// maxWidth: 300
+	},
+	buttonText: {
+	  fontSize: 18,
+	  color: 'white',
+	  alignSelf: 'center'
+	},
+	button: {
+	  height: 36,
+	  backgroundColor: '#48BBEC',
+	  borderColor: '#48BBEC',
+	  borderWidth: 1,
+	  borderRadius: 8,
+	  marginBottom: 10,
+	  alignSelf: 'stretch',
+	  justifyContent: 'center'
+	},
+	actionButtonIcon: {
+	    fontSize: 20,
+	    height: 22,
+	    color: 'white',
+	},
+	scrollView: {
+	   height: 300,
+	 },
+	 blur: {
+	 	flex: 1,
+	 	backgroundColor: 'transparent',
+	 	justifyContent: 'center'
+	 },
+	 horizontalScrollView: {
+	   height: 160,
+	 }
 };

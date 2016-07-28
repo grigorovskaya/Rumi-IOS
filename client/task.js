@@ -7,7 +7,7 @@ import {
 	StyleSheet
 } from 'react-native';
 
-window.navigator.userAgent = "react-native";
+// window.navigator.userAgent = "react-native";
 
 export default class Task extends React.Component {
   constructor(props) {
@@ -23,6 +23,7 @@ export default class Task extends React.Component {
 
   render() {
     var coloredTask;
+    console.log('STATE ', this.state);
     if (this.state.color === 0) {
       coloredTask = <View style={style.redbox}>
           <TouchableHighlight onPress={() => this.props.completeTask(this.state)}>
@@ -56,12 +57,12 @@ const style = {
 		overflow: 'hidden'
 	},
   redbox: {
-    height: 60,
-    width: 60,
+    height: 80,
+    width: 80,
     margin: 10,
     backgroundColor: "#ffffff",
-    borderRadius: 100,
-    borderColor: 'red',
+    borderRadius: 7,
+    borderColor: '#E96D60',
     borderWidth: 2,
     shadowColor: "#000000",
     shadowOpacity: 0.6,
@@ -72,12 +73,12 @@ const style = {
     }
   },
   yellowbox: {
-    height: 60,
-    width: 60,
+    height: 80,
+    width: 80,
     margin: 10,
     backgroundColor: "#ffffff",
-    borderRadius: 100,
-    borderColor: 'yellow',
+    borderRadius: 7,
+    borderColor: '#F1C40F',
     borderWidth: 2,
     shadowColor: "#000000",
     shadowOpacity: 0.6,
@@ -88,11 +89,11 @@ const style = {
     }
   },
   greenbox: {
-    height: 60,
-    width: 60,
+    height: 80,
+    width: 80,
     margin: 10,
     backgroundColor: "#ffffff",
-    borderRadius: 100,
+    borderRadius: 7,
     borderColor: 'green',
     borderWidth: 2,
     shadowColor: "#000000",
