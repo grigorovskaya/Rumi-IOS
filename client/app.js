@@ -85,36 +85,36 @@ export default class App extends React.Component {
 	render() {
 		return (
 			<View>
-				<View style={style.content}>
-				{this.state.overdueTasks.map(overdueTask => {
-					return (<Task task={overdueTask} id={overdueTask.id}
-	                      name={overdueTask.name}
-	                      due={moment().endOf(overdueTask.dueBy).fromNow()}
-	                      color={0}
-	                      key={overdueTask.id}
-	                      completeTask={this.completeTask.bind(this)}/>);
-				})}
-				</View>
-				<View style={style.content}>
-				{this.state.recentTasks.map(recentTask => {
-					return (<Task task={recentTask} id={recentTask.id}
-	                      name={recentTask.name}
-	                      due={moment().endOf(recentTask.dueBy).fromNow()}
-	                      color={0}
-	                      key={recentTask.id}
-	                      completeTask={this.completeTask.bind(this)}/>);
-				})}
-				</View>
-				<View style={style.content}>
-				{this.state.completedTasks.map(completedTask => {
-					return (<Task task={completedTask} id={completedTask.id}
-	                      name={completedTask.name}
-	                      due={moment().endOf(completedTask.dueBy).fromNow()}
-	                      color={0}
-	                      key={completedTask.id}
-	                      completeTask={this.completeTask.bind(this)}/>);
-				})}
-				</View>
+			<View style={style.content}>
+			{this.state.overdueTasks.map(overdueTask => {
+				return (<Task task={overdueTask} id={overdueTask.id}
+                      name={overdueTask.name}
+                      due={moment().endOf(overdueTask.dueBy).fromNow()}
+                      color={0}
+                      key={overdueTask.id}
+                      completeTask={this.completeTask.bind(this)}/>);
+			})}
+			</View>
+			<View style={style.content}>
+			{this.state.recentTasks.map(recentTask => {
+				return (<Task task={recentTask} id={recentTask.id}
+                      name={recentTask.name}
+                      due={moment().endOf(recentTask.dueBy).fromNow()}
+                      color={1}
+                      key={recentTask.id}
+                      completeTask={this.completeTask.bind(this)}/>);
+			})}
+			</View>
+			<View style={style.content}>
+			{this.state.completedTasks.map(completedTask => {
+				return (<Task task={completedTask} id={completedTask.id}
+                      name={completedTask.name}
+                      due={moment().endOf(completedTask.dueBy).fromNow()}
+                      color={2}
+                      key={completedTask.id}
+                      completeTask={this.completeTask.bind(this)}/>);
+			})}
+			</View>
 			</View>
 			);
 	}
