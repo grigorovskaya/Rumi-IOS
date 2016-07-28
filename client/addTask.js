@@ -9,8 +9,6 @@ import {
 } from 'react-native';
 
 window.navigator.userAgent = "react-native";
-var io = require('socket.io-client/socket.io');
-var socket = io('http://localhost:3000', {jsonp: false, transports: ['websocket']});
 var t = require('tcomb-form-native');
 
 var Form = t.form.Form;
@@ -25,7 +23,7 @@ var Task = t.struct({
 });
 
 
-export default class addTask extends React.Component {
+export default class AddTask extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -97,7 +95,7 @@ export default class addTask extends React.Component {
 	    return;
 	  }
 
-	  socket.emit('create task', {
+	  this.props.socket.emit('create task', {
 	    name: taskName,
 	    dueBy: dueDate,
 	    interval: interval
