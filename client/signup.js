@@ -76,6 +76,7 @@ export default class SignUp extends Component {
         </View>  
         <View style={styles.row}>
           <TouchableHighlight onPress={()=> this._signUp()} style={styles.button} underlayColor='#99d9f4'>
+
             <Text style={styles.buttonText}>Signup</Text>
           </TouchableHighlight>
           <Text style={styles.notification}>{this.state.message}</Text>
