@@ -10,18 +10,22 @@ import AddTask from './client/addTask';
 
 // trying to see if passing socket down to components as props
 // so that no more than one socket connection on each app
-var io = require('socket.io-client/socket.io');
-var socket = io('http://localhost:3000', {jsonp: false, transports: ['websocket']});
+var Store = require('react-native-simple-store');
 
 export default class Rumi extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+
     return (
       <Router>
         <Scene key="root">
-          <Scene key="signIn" component={SignIn} title="Sign In" initial={true} />
-          <Scene key="signUp" component={SignUp} title="Sign Up" />
-          <Scene key="app" component={App} title="Rumi" socket={socket} />
-          <Scene key="addTask" component={AddTask} title="Add Task" socket={socket} />
+          <Scene key="signIn" component={SignIn} title="Sign In" initial={true} Store={Store} />
+          <Scene key="signUp" component={SignUp} title="Sign Up" Store={Store} />
+          <Scene key="app" component={App} title="Rumi" Store={Store} />
+          <Scene key="addTask" component={AddTask} title="Add Task" Store={Store} />
         </Scene>
       </Router>
     )
