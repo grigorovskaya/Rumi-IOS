@@ -6,6 +6,7 @@ import {
 	Text,
 	StyleSheet
 } from 'react-native';
+
 window.navigator.userAgent = "react-native";
 var io = require('socket.io-client/socket.io');
 
