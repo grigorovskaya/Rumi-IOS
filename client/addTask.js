@@ -10,8 +10,8 @@ import {
 import { Actions } from 'react-native-router-flux';
 window.navigator.userAgent = "react-native";
 var t = require('tcomb-form-native');
-var socket;
-var io = require('socket.io-client/socket.io');
+// var socket;
+// var io = require('socket.io-client/socket.io');
 
 var Form = t.form.Form;
 var interval = t.enums({
@@ -28,51 +28,29 @@ var Task = t.struct({
 export default class AddTask extends React.Component {
 	constructor(props) {
 		super(props);
-		this.socket = socket;
+		this.socket = this.props.socket;
 		this.state = {
-		//   intervalNum: 0,
-		//   intervalVal: 1,
-		  // showModal: false,
-		  // taskName: '',
 		  taskDueDate: '',
 		  taskInterval: 0,
 		  value: null
 		};
 	}
 	
-	// close() {
-	//   // this.setState({
-	//   //   showModal: false
-	//   // });
-	// }
 
-	// open() {
-	//   this.setState({
-	//     showModal: true
-	//   });
-	// }
 	componentWillMount() {
-	  socket = io('http://localhost:3000', {jsonp: false, transports: ['websocket']});
-	  this.socket = socket;
+	  // socket = io('http://localhost:3000', {jsonp: false, transports: ['websocket']});
+	  // this.socket = socket;
 	}
-
 
 	handleTextFieldChange(value) {
 	  this.setState({value});
 	}
-
-	// handleSelectFieldChange(e, i, v) {
-	//   this.setState({
-	//     value.intervalVal: v
-	//   });
-	// }
 
 	calcDueDateAndInterval() {
 	  let hours = n => 1000*60*60*n;
 	  let days = n => hours(n) * 24;
 
 	  let n = Number(this.state.value.intervalNum);
-	  // 1 = hours; 2 = days
 	  if (this.state.value.intervalVal === '1') {
 	    this.state.taskInterval = hours(n);
 	  } else if (this.state.value.intervalVal === '2') {
@@ -85,12 +63,10 @@ export default class AddTask extends React.Component {
 
 	handleSubmit() {
 	
-	  //get the values from form
 	  var value = this.refs.form.getValue();
 	  if (value) {
 	  	console.log(value);
 	  	this.setState({value});
-	  	//this.clearForm();
 	  }
 	  this.calcDueDateAndInterval();
 
@@ -109,7 +85,6 @@ export default class AddTask extends React.Component {
 	    interval: interval
 	  });
 
-	  //this.props.onAddNewTask(taskName, dueDate);
 	  this.setState({value: null});
 	  Actions.app();
 	}
