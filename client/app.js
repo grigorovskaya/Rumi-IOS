@@ -13,7 +13,7 @@ import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { BlurView, VibrancyView } from 'react-native-blur';
 import { Actions } from 'react-native-router-flux';
-import { CompletedDiv } from './completedTasks.js';
+import CompletedView from './completedView.js';
 // import addTask from './addTask.js';
 
 window.navigator.userAgent = "react-native";
@@ -115,6 +115,8 @@ export default class App extends React.Component {
 		Actions.addTask({socket: this.socket});
 	}
 
+
+
 	completeTask(task) {
 		console.log("task", task)
 		this.socket.emit('complete task', task.id);
@@ -149,10 +151,7 @@ export default class App extends React.Component {
 			})}
 			</ScrollView>
 			<ScrollView automaticallyAdjustContentInsets={false}
-          style={[style.scrollView, style.horizontalScrollView]}>{
-		      this.state.completedTasks.map( cTasks => {
-		      	return (<CompletedDiv  key={cTasks.id} task={cTasks.task} user={cTasks.user} />);
-		      })}
+          style={[style.scrollView, style.horizontalScrollView]}>
 			</ScrollView>
 			
 
@@ -161,7 +160,8 @@ export default class App extends React.Component {
 			          <ActionButton.Item buttonColor='#9b59b6' onPress={() => this.toAddTaskPage()}>
 			            <Icon name="md-create" style={style.actionButtonIcon} />
 			          </ActionButton.Item>
-			          <ActionButton.Item position={'center'} buttonColor='#1abc9c' title="Completed Tasks" onPress={() => {}}>
+			          <ActionButton.Item position={'center'} buttonColor='#1abc9c' title="Completed Tasks" 
+			            onPress={() => {Actions.completedView({completedTaskList: this.state.completedTasks})}}>
 			          <Icon name="md-done-all" style={style.actionButtonIcon} />
 			          </ActionButton.Item>
 			        </ActionButton>

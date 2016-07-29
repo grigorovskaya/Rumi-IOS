@@ -26,27 +26,27 @@ export default class Task extends React.Component {
     console.log('STATE ', this.state);
     if (this.state.color === 0) {
       coloredTask = <View style={style.redbox}>
-          <TouchableHighlight onPress={() => this.props.completeTask(this.state)}>
           <Text style={style.text}>{this.state.name}</Text>
-          </TouchableHighlight>
           </View>
     }
     else if (this.state.color === 1) {
       coloredTask = <View style={style.yellowbox}>
-        <TouchableHighlight onPress={() => this.props.completeTask(this.state)}>
         <Text style={style.text}>{this.state.name}</Text>
-        </TouchableHighlight>
         </View>
     }
     else if (this.state.color === 2) {
       coloredTask = <View style={style.greenbox}>
-        <TouchableHighlight onPress={() => this.props.completeTask(this.state)}>
         <Text style={style.text}>{this.state.name}</Text>
-        </TouchableHighlight>
         </View>
     }
+
+    
     return (
-      <View>{coloredTask}</View>
+      <View>
+        <TouchableHighlight onPress={() => this.props.completeTask(this.state)}>
+          {coloredTask}
+        </TouchableHighlight>  
+      </View>
       );
     }
 }
