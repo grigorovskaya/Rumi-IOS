@@ -84,6 +84,11 @@ export default class App extends React.Component {
 
 	}
 
+	toAddTaskPage(){
+		this.socket.emit('disconnect');
+		Actions.addTask({socket: this.socket});
+	}
+
 	completeTask(task) {
 		console.log('made it to completeTask');
 		this.socket.emit('complete task', task.id);
@@ -133,7 +138,7 @@ export default class App extends React.Component {
 
 			<View style={{flex:1, backgroundColor: '#f3f3f3'}}>
 			        <ActionButton position={'center'} degrees={45} backdrop={<BlurView blurType='extra light' style={style.blur}/>} buttonColor="rgba(231,76,60,1)">
-			          <ActionButton.Item buttonColor='#9b59b6' onPress={Actions.addTask}>
+			          <ActionButton.Item buttonColor='#9b59b6' onPress={() => this.toAddTaskPage()}>
 			            <Icon name="md-create" style={style.actionButtonIcon} />
 			          </ActionButton.Item>
 			          <ActionButton.Item position={'center'} buttonColor='#1abc9c' title="Completed Tasks" onPress={() => {}}>
