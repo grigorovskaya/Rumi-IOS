@@ -11,10 +11,10 @@
     "react-native": "0.30.0",
     "react-native-action-button": "^1.1.11",
     "react-native-blur": "^1.0.0",
+    "react-native-material-design": "^0.3.7",
     "react-native-router-flux": "^3.32.0",
     "react-native-simple-store": "^1.0.1",
     "react-native-vector-icons": "^2.0.3",
-    "react-native-router-flux": "^3.32.0",
     "socket.io-client": "^1.4.8",
     "tcomb-form-native": "^0.6.0"
   }

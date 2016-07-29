@@ -6,9 +6,16 @@ import {
 	Text,
 	StyleSheet
 } from 'react-native';
+import { Divider } from 'react-native-material-design';
 
-export const CompletedTask = (props) => {
-	render() {
-		return ();
-	}
+
+export const CompletedDiv = (props) => {
+    return (
+        <View>
+            <Divider  />
+            <Text>{props.user.name}</Text>
+            <Text>{props.task.name}</Text>
+            <Divider inset={true} />
+        </View> 
+    );
 };
