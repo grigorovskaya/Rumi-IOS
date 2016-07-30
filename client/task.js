@@ -63,8 +63,8 @@ const style = {
 		textAlign: 'center',
 		overflow: 'hidden',
     fontFamily: 'HelveticaNeue-Light',
-    color: 'rgba(0, 0, 0, 0.8)',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: 'rgba(0,0,0,0.8)'
 	},
   redbox: {
     resizeMode: 'contain',
