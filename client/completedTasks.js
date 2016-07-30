@@ -15,7 +15,9 @@ export const CompletedDiv = (props) => {
         <View style={style.container} >
             <Divider />
             <Image style={style.image} source={require('./img/star.png')}/>
-            <View ><Text style={style.boldText} >{props.user.name}</Text>
+            <View >
+            <Text style={style.text} ></Text>
+            <Text style={style.boldText} >{props.user.name}</Text>
             <Text style={style.text}>{props.task.name}</Text></View>
             <Divider inset={true} />
         </View> 
@@ -31,21 +33,20 @@ const style = {
   },
   boldText: {
     fontWeight: 'bold',
-    marginLeft: 10
+    margin: 6,
+    marginBottom: 0
   },
   text: {
-<<<<<<< a10b6c5c08ab36219d8fdbb5c71ac1ee5c072a02
     margin : 10
   },
   textBold: {
     fontWeight: 'bold',
     margin: 10
-=======
     marginLeft: 10
->>>>>>> (feat) add completed task icon, fix task color scheme
   },
   image: {
-    width: 70,
-    height: 70
+    width: 50,
+    height: 50,
+    margin: 15
   }
 };

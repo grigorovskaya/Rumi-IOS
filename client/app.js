@@ -54,6 +54,9 @@ export default class App extends React.Component {
 	  });
 	}
 
+	componentWillMount() {
+	}
+
 	componentDidMount() {
 		this.props.Store.get('user')
 			.then(token => {
