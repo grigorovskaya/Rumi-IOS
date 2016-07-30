@@ -37,11 +37,11 @@ const style = {
     marginBottom: 0
   },
   text: {
-    margin : 10
+    marginTop: 2
   },
   textBold: {
     fontWeight: 'bold',
-    margin: 10
+    margin: 10,
     marginLeft: 10
   },
   image: {
