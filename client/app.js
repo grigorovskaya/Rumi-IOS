@@ -41,7 +41,7 @@ export default class App extends React.Component {
 
 	    let allTasks = [].concat(this.state.urgentTasks, this.state.recentTasks, this.state.overdueTasks);
 	    this.reprioritize(allTasks);
-	  }, 1000*60); // update every minute
+	  }, 60000); // update every minute
 	}
 
 	reprioritize(tasks) {
@@ -53,33 +53,6 @@ export default class App extends React.Component {
 	    recentTasks: t.recent
 	  });
 	}
-
-	// componentWillMount() {
-	// 	this.props.Store.get('user')
-	// 		.then(token => {
-	// 			if (token) {
-	// 				this.socket = io('http://localhost:3000', {jsonp: false, transports: ['websocket'], query:'token=' + token});
-	// 				this.socket.emit('get all tasks');
-	// 				this.socket.emit('get completeds');
-	// 				this.socket.on('sending all tasks', this.reprioritize.bind(this));
-	// 				this.socket.on('sending completeds', completedTasks => {
-	// 				  this.setState({completedTasks});
-	// 				});
-	// 				this.socket.on('create task', newTask => {
-	// 				  this.socket.emit('get all tasks');
-	// 				});
-	// 				this.socket.on('complete task', function(completedTask) {
-	// 				  this.socket.emit('get all tasks');
-	// 				  var cs = this.state.completedTasks;
-	// 				  cs.unshift(completedTask);
-	// 				  console.log('completed task', completedTask);
-	// 				  this.setState({
-	// 				    completedTasks: cs
-	// 				  });
-	// 				}.bind(this));
-	// 			}
-	// 		});
-	// }
 
 	componentDidMount() {
 		this.props.Store.get('user')
@@ -96,7 +69,6 @@ export default class App extends React.Component {
 					  this.socket.emit('get all tasks');
 					});
 					this.socket.on('completed task', completedTask => {
-						console.log('completed task', completedTask);
 					  this.socket.emit('get all tasks');
 					  var cs = this.state.completedTasks;
 					  cs.unshift(completedTask);
@@ -181,7 +153,6 @@ const style = {
 	content: {
 		marginTop: 100, 
 		justifyContent: 'center',
-		// maxWidth: 300
 	},
 	buttonText: {
 	  fontSize: 18,

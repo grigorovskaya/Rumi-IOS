@@ -58,6 +58,9 @@ export default class SignUp extends Component {
             message: responseData.message
           });
         } else if (responseData.id_token) {
+          this.setState({
+            message: ''
+          });
           this.props.Store.save('user', responseData.id_token)
             .then(() => {
               Actions.app();
@@ -103,6 +106,7 @@ var styles = StyleSheet.create({
   title: {
     fontSize: 30,
     alignSelf: 'center',
+    marginTop: 20,
     marginBottom: 30
   },
   buttonText: {

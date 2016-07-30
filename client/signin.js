@@ -58,6 +58,9 @@ export default class SignIn extends Component {
             message: responseData.message
           });
         } else if (responseData.id_token) {
+          this.setState({
+            message: ''
+          });
           this.props.Store.save('user', responseData.id_token)
             .then(() => {
               Actions.app();
@@ -85,9 +88,6 @@ export default class SignIn extends Component {
           <TouchableHighlight onPress={ ()=> this._signIn() } style={styles.button} underlayColor='#99d9f4'>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableHighlight>
-          <TouchableHighlight style={styles.button} underlayColor='#99d9f4'>
-            <Text style={styles.buttonText}>Logout</Text>
-          </TouchableHighlight>
           <Text style={styles.title} onPress={Actions.signUp}>Sign Up</Text>
           <Text style={styles.notification}>{this.state.message}</Text>
         </View>
@@ -106,7 +106,8 @@ var styles = StyleSheet.create({
   title: {
     fontSize: 30,
     alignSelf: 'center',
-    marginBottom: 30
+    marginBottom: 30,
+    marginTop: 20
   },
   buttonText: {
     fontSize: 18,
