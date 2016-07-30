@@ -24,7 +24,8 @@ export default class Rumi extends Component {
     return (
       <Router>
         <Scene key="root">
-
+          <Scene key="signIn" type="reset" component={SignIn} title="Sign In" initial={true} Store={Store} />
+          <Scene key="signUp" component={SignUp} title="Sign Up" Store={Store} />
           <Scene key="app" component={App} title="Rumi" Store={Store} />
           <Scene key="addTask" component={AddTask} title="Add Task" Store={Store} />
           <Scene key="completedView" component={CompletedView} title="Completed Tasks" Store={Store} />
