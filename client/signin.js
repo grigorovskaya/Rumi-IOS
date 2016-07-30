@@ -14,7 +14,7 @@ import {
 var t = require('tcomb-form-native');
 var Form = t.form.Form;
 var Person = t.struct({
-  email: t.String,
+  name: t.String,
   password: t.String
 });
 
@@ -47,7 +47,7 @@ export default class SignIn extends Component {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          email: value.email,
+          name: value.name,
           password: value.password
         })
       })
