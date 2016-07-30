@@ -10,6 +10,7 @@
     "react": "15.2.1",
     "react-native": "0.30.0",
     "react-native-action-button": "^1.1.11",
+    "react-native-animatable": "^0.6.1",
     "react-native-blur": "^1.0.0",
     "react-native-material-design": "^0.3.7",
     "react-native-router-flux": "^3.32.0",
