@@ -93,7 +93,7 @@ export default class SignIn extends Component {
         <TouchableHighlight onPress={ ()=> this._signIn() } style={styles.button} underlayColor='#99d9f4'>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableHighlight>
-        <Text style={styles.title} onPress={Actions.signUp}>Sign Up</Text>
+        <Text style={styles.signup} onPress={Actions.signUp}>Sign Up</Text>
         <Text style={styles.notification}>{this.state.message}</Text>
       </View>
       </View>
@@ -136,6 +136,11 @@ var styles = StyleSheet.create({
     marginBottom: 10,
     alignSelf: 'stretch',
     justifyContent: 'center'
+  },
+  signup: {
+    color: 'black',
+    alignSelf: 'center',
+    fontSize: 24
   },
   notification: {
     fontSize: 15,
