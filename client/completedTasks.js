@@ -12,6 +12,7 @@ import { Divider } from 'react-native-material-design';
 
 export const CompletedDiv = (props) => {
     return (
+      <View>
         <View style={style.container} >
             <Divider />
             <Image style={style.image} source={require('./img/star.png')}/>
@@ -21,6 +22,7 @@ export const CompletedDiv = (props) => {
             <Text style={style.text}>{props.task.name}</Text></View>
             <Divider inset={true} />
         </View> 
+      </View>
     );
 };
 
