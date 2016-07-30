@@ -137,6 +137,16 @@ export default class App extends React.Component {
                       completeTask={this.completeTask.bind(this)}/>);
 			})}
 			</ScrollView>
+			<ScrollView automaticallyAdjustContentInsets={false} horizontal={true} style={[style.scrollView, style.horizontalScrollView]}>
+			{this.state.urgentTasks.map(urgentTask => {
+				return (<Task task={urgentTask} id={urgentTask.id}
+                      name={urgentTask.name}
+                      due={moment().endOf(urgentTask.dueBy).fromNow()}
+                      color={1}
+                      key={urgentTask.id}
+                      completeTask={this.completeTask.bind(this)}/>);
+			})}
+			</ScrollView>
 			<ScrollView automaticallyAdjustContentInsets={false}
           horizontal={true}
           style={[style.scrollView, style.horizontalScrollView]}>
@@ -144,13 +154,10 @@ export default class App extends React.Component {
 				return (<Task task={recentTask} id={recentTask.id}
                       name={recentTask.name}
                       due={moment().endOf(recentTask.dueBy).fromNow()}
-                      color={1}
+                      color={2}
                       key={recentTask.id}
                       completeTask={this.completeTask.bind(this)}/>);
 			})}
-			</ScrollView>
-			<ScrollView automaticallyAdjustContentInsets={false}
-          style={[style.scrollView, style.horizontalScrollView]}>
 			</ScrollView>
 			
 
@@ -159,7 +166,7 @@ export default class App extends React.Component {
 			          <ActionButton.Item buttonColor='#9b59b6' onPress={() => this.toAddTaskPage()}>
 			            <Icon name="md-create" style={style.actionButtonIcon} />
 			          </ActionButton.Item>
-			          <ActionButton.Item position={'center'} buttonColor='#1abc9c' title="Completed Tasks" 
+			          <ActionButton.Item position={'center'} buttonColor='#1abc9c' 
 			            onPress={() => {Actions.completedView({completedTaskList: this.state.completedTasks})}}>
 			          <Icon name="md-done-all" style={style.actionButtonIcon} />
 			          </ActionButton.Item>
