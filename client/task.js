@@ -24,7 +24,6 @@ export default class Task extends React.Component {
 
   render() {
     var coloredTask;
-    console.log('STATE ', this.state);
     if (this.state.color === 0) {
       coloredTask = <View style={style.redbox}>
           <Text style={style.text}>{this.state.name}</Text>
@@ -44,7 +43,7 @@ export default class Task extends React.Component {
     
     return (
       <Animatable.View ref='view'>
-        <TouchableHighlight onPress={() => { this.refs.view.zoomOut(200).then(() => {this.props.completeTask(this.state);});}}>
+        <TouchableHighlight onPress={() => { this.refs.view.tada(800).then(() => {this.props.completeTask(this.state);});}}>
           {coloredTask}
         </TouchableHighlight>  
       </Animatable.View>

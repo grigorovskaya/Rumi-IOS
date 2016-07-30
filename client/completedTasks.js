@@ -14,7 +14,7 @@ export const CompletedDiv = (props) => {
     return (
         <View style={style.container} >
             <Divider />
-            <Image style={style.image} source={{uri:'https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/NotCommons-emblem-copyrighted.svg/50px-NotCommons-emblem-copyrighted.svg.png'}}/>
+            <Image style={style.image} source={{uri:'http://resizeimage.net/viewimg/3a7jX4NkOHQzdOxj/OXKUH/tasktask-icon.png'}}/>
             <View ><Text style={style.text} >{props.user.name}</Text>
             <Text >{props.task.name}</Text></View>
             <Divider inset={true} />
@@ -35,8 +35,6 @@ const style = {
   textBold: {
     fontWeight: 'bold',
     margin: 10
-    // flexDirection: 'column',
-    // alignSelf: 'flex-start'
   },
   image: {
     width: 70,
