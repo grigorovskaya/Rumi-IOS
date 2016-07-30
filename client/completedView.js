@@ -4,6 +4,7 @@ import {
   ScrollView,
   View,
   Text,
+  Image,
   StyleSheet
 } from 'react-native';
 import { CompletedDiv } from './completedTasks.js';
@@ -18,6 +19,8 @@ export default class CompletedView extends React.Component {
 
   render() {
     return (
+      <View>
+      <Image source={require('./img/back.jpg')} style={style.back}>
       <View style={style.container}>
         <ScrollView automaticallyAdjustContentInsets={false} style={style.scrollView}>{
           this.state.completedTaskList.map( comTask => {
@@ -25,6 +28,8 @@ export default class CompletedView extends React.Component {
             )
           }
         </ScrollView>
+      </View>
+      </Image>
       </View>
       );
   }
@@ -36,7 +41,12 @@ const style = {
     justifyContent: 'center',
     marginTop: 50,
     padding: 20,
-    backgroundColor: '#ffffff',
+    backgroundColor: 'transparent',
+  },
+  back: {
+    flex: 1,
+    width: null,
+    height: null
   },
   title: {
     fontSize: 30,

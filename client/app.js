@@ -3,6 +3,7 @@ import {
 	AppRegistry, 
 	ScrollView,
 	View,
+	Image,
 	Text,
 	StyleSheet
 } from 'react-native';
@@ -98,6 +99,8 @@ export default class App extends React.Component {
 	render() {
 		return (
 		
+			<View>
+			<Image source={require('./img/back.jpg')} style={style.back}>
 			<View style={style.content}>
 			<ScrollView automaticallyAdjustContentInsets={false}
           horizontal={true}
@@ -146,6 +149,8 @@ export default class App extends React.Component {
 			          </ActionButton.Item>
 			        </ActionButton>
 			      </View>
+			</View>
+			</Image>
 
 			</View>
 			);
@@ -157,6 +162,11 @@ const style = {
 		marginTop: 100, 
 		justifyContent: 'center',
 		backgroundColor: 'transparent'
+	},
+	back: {
+		flex: 1,
+		width: null,
+		height: 700
 	},
 	buttonText: {
 	  fontSize: 18,
