@@ -108,6 +108,7 @@ var styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   title: {
+  	fontFamily: 'HelveticaNeue-Light',
     fontSize: 30,
     alignSelf: 'center',
     marginBottom: 30

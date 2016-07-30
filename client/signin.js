@@ -144,6 +144,7 @@ var styles = StyleSheet.create({
     fontSize: 24
   },
   notification: {
+    fontFamily: 'HelveticaNeue-Light',
     fontSize: 15,
     alignSelf: 'center',
     marginBottom: 30
