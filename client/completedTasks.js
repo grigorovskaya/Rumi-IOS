@@ -13,7 +13,7 @@ import { Divider } from 'react-native-material-design';
 export const CompletedDiv = (props) => {
     return (
         <View style={style.container} >
-            <Divider  />
+            <Divider />
             <Image style={style.image} source={{uri:'https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/NotCommons-emblem-copyrighted.svg/50px-NotCommons-emblem-copyrighted.svg.png'}}/>
             <View ><Text style={style.text} >{props.user.name}</Text>
             <Text >{props.task.name}</Text></View>
@@ -37,4 +37,4 @@ const style = {
     width: 50,
     height: 50
   }
-}
+};
