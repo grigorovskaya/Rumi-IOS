@@ -98,7 +98,6 @@ export default class App extends React.Component {
 	render() {
 		return (
 			<View style={style.content}>
-			
 			<ScrollView automaticallyAdjustContentInsets={false}
           horizontal={true}
           style={[style.scrollView, style.horizontalScrollView]}>
