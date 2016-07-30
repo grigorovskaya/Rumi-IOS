@@ -117,7 +117,6 @@ export default class App extends React.Component {
 
 
 	completeTask(task) {
-		console.log("task", task)
 		this.socket.emit('complete task', task.id);
 	}
 
@@ -162,8 +161,8 @@ export default class App extends React.Component {
 			
 
 			<View style={{flex:1, backgroundColor: '#f3f3f3'}}>
-			        <ActionButton position={'center'} degrees={45} buttonColor="rgba(231,76,60,1)">
-			          <ActionButton.Item buttonColor='#9b59b6' onPress={() => this.toAddTaskPage()}>
+			        <ActionButton position={'center'} degrees={45} buttonColor="#48BBEC">
+			          <ActionButton.Item buttonColor='#E96D60' onPress={() => this.toAddTaskPage()}>
 			            <Icon name="md-create" style={style.actionButtonIcon} />
 			          </ActionButton.Item>
 			          <ActionButton.Item position={'center'} buttonColor='#1abc9c' 

@@ -6,6 +6,7 @@ import {
 	Text,
 	StyleSheet
 } from 'react-native';
+import * as Animatable from 'react-native-animatable'
 
 // window.navigator.userAgent = "react-native";
 
@@ -42,11 +43,11 @@ export default class Task extends React.Component {
 
     
     return (
-      <View>
-        <TouchableHighlight onPress={() => this.props.completeTask(this.state)}>
+      <Animatable.View ref='view'>
+        <TouchableHighlight onPress={() => { this.refs.view.zoomOut(200).then(() => {this.props.completeTask(this.state);});}}>
           {coloredTask}
         </TouchableHighlight>  
-      </View>
+      </Animatable.View>
       );
     }
 }
@@ -57,11 +58,13 @@ const style = {
 		overflow: 'hidden'
 	},
   redbox: {
+    justifyContent: 'center',
+    alignItems: 'center',
     height: 80,
     width: 80,
     margin: 10,
     backgroundColor: "#ffffff",
-    borderRadius: 7,
+    borderRadius: 9,
     borderColor: '#E96D60',
     borderWidth: 2,
     shadowColor: "#000000",
@@ -73,6 +76,8 @@ const style = {
     }
   },
   yellowbox: {
+    justifyContent: 'center',
+    alignItems: 'center',
     height: 80,
     width: 80,
     margin: 10,
@@ -89,12 +94,14 @@ const style = {
     }
   },
   greenbox: {
+    justifyContent: 'center',
+    alignItems: 'center',
     height: 80,
     width: 80,
     margin: 10,
     backgroundColor: "#ffffff",
     borderRadius: 7,
-    borderColor: 'green',
+    borderColor: '#17a689',
     borderWidth: 2,
     shadowColor: "#000000",
     shadowOpacity: 0.6,
