@@ -115,8 +115,9 @@ var styles = StyleSheet.create({
     height: 350
   },
   title: {
+    fontFamily: 'HelveticaNeue-Light',
     fontSize: 72,
-    color: 'white',
+    color: 'rgba(255, 255, 255, 0.8)',
     backgroundColor: 'transparent',
     alignSelf: 'center',
     marginBottom: 30,
