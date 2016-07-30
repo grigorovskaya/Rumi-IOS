@@ -6,6 +6,7 @@ import {
   AsyncStorage,
   StyleSheet,
   Text,
+  Image,
   View,
   TouchableHighlight,
   AlertIOS
@@ -73,24 +74,29 @@ export default class SignIn extends Component {
 
   render() {
     return (
+      
+      <View >
+      <Image style={styles.stretch} source={require('./img/cover.jpg')} >
+      <View style={styles.row}>
+        <Text style={styles.title}>RUMI</Text>
+      </View>
+      </Image>
       <View style={styles.container}>
-        <View style={styles.row}>
-          <Text style={styles.title}>LETS GET RUMI</Text>
-        </View>
-        <View style={styles.row}>
-          <Form
-            ref="form"
-            type={Person}
-            options={options}
-          />
-        </View>  
-        <View style={styles.row}>
-          <TouchableHighlight onPress={ ()=> this._signIn() } style={styles.button} underlayColor='#99d9f4'>
-            <Text style={styles.buttonText}>Login</Text>
-          </TouchableHighlight>
-          <Text style={styles.title} onPress={Actions.signUp}>Sign Up</Text>
-          <Text style={styles.notification}>{this.state.message}</Text>
-        </View>
+      <View style={styles.row}>
+        <Form
+          ref="form"
+          type={Person}
+          options={options}
+        />
+      </View>  
+      <View style={styles.row}>
+        <TouchableHighlight onPress={ ()=> this._signIn() } style={styles.button} underlayColor='#99d9f4'>
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableHighlight>
+        <Text style={styles.signup} onPress={Actions.signUp}>Sign Up</Text>
+        <Text style={styles.notification}>{this.state.message}</Text>
+      </View>
+      </View>
       </View>
     );
   }
@@ -99,15 +105,23 @@ export default class SignIn extends Component {
 var styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    marginTop: 50,
+    marginTop: 20,
     padding: 20,
-    backgroundColor: '#ffffff',
+    backgroundColor: 'transparent',
+  },
+  stretch: {
+    flex: 1,
+    width: null,
+    height: 350
   },
   title: {
-    fontSize: 30,
+    fontFamily: 'HelveticaNeue-Light',
+    fontSize: 72,
+    color: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: 'transparent',
     alignSelf: 'center',
     marginBottom: 30,
-    marginTop: 20
+    marginTop: 135
   },
   buttonText: {
     fontSize: 18,
@@ -124,7 +138,13 @@ var styles = StyleSheet.create({
     alignSelf: 'stretch',
     justifyContent: 'center'
   },
+  signup: {
+    color: 'black',
+    alignSelf: 'center',
+    fontSize: 24
+  },
   notification: {
+    fontFamily: 'HelveticaNeue-Light',
     fontSize: 15,
     alignSelf: 'center',
     marginBottom: 30

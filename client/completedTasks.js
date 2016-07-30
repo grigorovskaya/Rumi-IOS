@@ -14,9 +14,11 @@ export const CompletedDiv = (props) => {
     return (
         <View style={style.container} >
             <Divider />
-            <Image style={style.image} source={{uri:'https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/NotCommons-emblem-copyrighted.svg/50px-NotCommons-emblem-copyrighted.svg.png'}}/>
-            <View ><Text style={style.text} >{props.user.name}</Text>
-            <Text >{props.task.name}</Text></View>
+            <Image style={style.image} source={require('./img/star.png')}/>
+            <View >
+            <Text style={style.text} ></Text>
+            <Text style={style.boldText} >{props.user.name}</Text>
+            <Text style={style.text}>{props.task.name}</Text></View>
             <Divider inset={true} />
         </View> 
     );
@@ -29,17 +31,22 @@ const style = {
     flexDirection: 'row',
     margin: 10,
   },
+  boldText: {
+    fontWeight: 'bold',
+    margin: 6,
+    marginBottom: 0
+  },
   text: {
-    margin : 10
+    marginTop: 2
   },
   textBold: {
     fontWeight: 'bold',
-    margin: 10
-    // flexDirection: 'column',
-    // alignSelf: 'flex-start'
+    margin: 10,
+    marginLeft: 10
   },
   image: {
-    width: 70,
-    height: 70
+    width: 50,
+    height: 50,
+    margin: 15
   }
 };

@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Image,
   TouchableHighlight,
   AlertIOS
 } from 'react-native';
@@ -73,10 +74,13 @@ export default class SignUp extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View >
+      <Image style={styles.stretch} source={require('./img/cover.jpg')} >
         <View style={styles.row}>
-          <Text style={styles.title}>LETS GET RUMI</Text>
+          <Text style={styles.title}>RUMI</Text>
         </View>
+        </Image>
+        <View style={styles.container}>
         <View style={styles.row}>
           <Form
             ref="form"
@@ -92,6 +96,7 @@ export default class SignUp extends Component {
           <Text style={styles.notification}>{this.state.message}</Text>
         </View>
       </View>
+      </View>
     );
   }
 }
@@ -99,15 +104,23 @@ export default class SignUp extends Component {
 var styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    marginTop: 50,
+    marginTop: 10,
     padding: 20,
     backgroundColor: '#ffffff',
   },
+  stretch: {
+    flex: 1,
+    width: null,
+    height: 350
+  },
   title: {
-    fontSize: 30,
+    fontFamily: 'HelveticaNeue-Light',
+    fontSize: 72,
+    color: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: 'transparent',
     alignSelf: 'center',
-    marginTop: 20,
-    marginBottom: 30
+    marginBottom: 30,
+    marginTop: 135
   },
   buttonText: {
     fontSize: 18,

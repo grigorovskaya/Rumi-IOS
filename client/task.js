@@ -4,6 +4,7 @@ import {
 	View,
   TouchableHighlight, 
 	Text,
+  Image,
 	StyleSheet
 } from 'react-native';
 import * as Animatable from 'react-native-animatable'
@@ -24,27 +25,32 @@ export default class Task extends React.Component {
 
   render() {
     var coloredTask;
-    console.log('STATE ', this.state);
     if (this.state.color === 0) {
-      coloredTask = <View style={style.redbox}>
+      coloredTask = <View >
+      <Image source={require('./img/overduetask.png')} style={style.redbox}>
           <Text style={style.text}>{this.state.name}</Text>
+          </Image>
           </View>
     }
     else if (this.state.color === 1) {
-      coloredTask = <View style={style.yellowbox}>
+      coloredTask = <View >
+      <Image source={require('./img/urgenttask.png')} style={style.yellowbox}>
         <Text style={style.text}>{this.state.name}</Text>
+        </Image>
         </View>
     }
     else if (this.state.color === 2) {
-      coloredTask = <View style={style.greenbox}>
+      coloredTask = <View >
+      <Image source={require('./img/recenttask.png')} style={style.greenbox}>
         <Text style={style.text}>{this.state.name}</Text>
+        </Image>
         </View>
     }
 
     
     return (
       <Animatable.View ref='view'>
-        <TouchableHighlight onPress={() => { this.refs.view.zoomOut(200).then(() => {this.props.completeTask(this.state);});}}>
+        <TouchableHighlight onPress={() => { this.refs.view.tada(800).then(() => {this.props.completeTask(this.state);});}}>
           {coloredTask}
         </TouchableHighlight>  
       </Animatable.View>
@@ -55,15 +61,19 @@ export default class Task extends React.Component {
 const style = {
 	text: {
 		textAlign: 'center',
-		overflow: 'hidden'
+		overflow: 'hidden',
+    fontFamily: 'HelveticaNeue-Light',
+    fontWeight: 'bold',
+    color: 'rgba(0,0,0,0.8)'
 	},
   redbox: {
+    resizeMode: 'contain',
     justifyContent: 'center',
     alignItems: 'center',
     height: 80,
     width: 80,
     margin: 10,
-    backgroundColor: "#ffffff",
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
     borderRadius: 9,
     borderColor: '#E96D60',
     borderWidth: 2,
@@ -81,9 +91,9 @@ const style = {
     height: 80,
     width: 80,
     margin: 10,
-    backgroundColor: "#ffffff",
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
     borderRadius: 7,
-    borderColor: '#F1C40F',
+    borderColor: '#F6AF10',
     borderWidth: 2,
     shadowColor: "#000000",
     shadowOpacity: 0.6,
@@ -99,7 +109,7 @@ const style = {
     height: 80,
     width: 80,
     margin: 10,
-    backgroundColor: "#ffffff",
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
     borderRadius: 7,
     borderColor: '#17a689',
     borderWidth: 2,

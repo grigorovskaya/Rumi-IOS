@@ -54,6 +54,9 @@ export default class App extends React.Component {
 	  });
 	}
 
+	componentWillMount() {
+	}
+
 	componentDidMount() {
 		this.props.Store.get('user')
 			.then(token => {
@@ -94,8 +97,8 @@ export default class App extends React.Component {
 
 	render() {
 		return (
+		
 			<View style={style.content}>
-			
 			<ScrollView automaticallyAdjustContentInsets={false}
           horizontal={true}
           style={[style.scrollView, style.horizontalScrollView]}>
@@ -143,8 +146,8 @@ export default class App extends React.Component {
 			          </ActionButton.Item>
 			        </ActionButton>
 			      </View>
-			</View>
 
+			</View>
 			);
 	}
 }
@@ -153,6 +156,7 @@ const style = {
 	content: {
 		marginTop: 100, 
 		justifyContent: 'center',
+		backgroundColor: 'transparent'
 	},
 	buttonText: {
 	  fontSize: 18,
