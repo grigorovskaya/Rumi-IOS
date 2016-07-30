@@ -11,7 +11,6 @@ import moment from 'moment';
 import urgency from './urgency.service';
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { BlurView, VibrancyView } from 'react-native-blur';
 import { Actions } from 'react-native-router-flux';
 import CompletedView from './completedView.js';
 // import addTask from './addTask.js';
@@ -156,7 +155,7 @@ export default class App extends React.Component {
 			
 
 			<View style={{flex:1, backgroundColor: '#f3f3f3'}}>
-			        <ActionButton position={'center'} degrees={45} backdrop={<BlurView blurType='extra light' style={style.blur}/>} buttonColor="rgba(231,76,60,1)">
+			        <ActionButton position={'center'} degrees={45} buttonColor="rgba(231,76,60,1)">
 			          <ActionButton.Item buttonColor='#9b59b6' onPress={() => this.toAddTaskPage()}>
 			            <Icon name="md-create" style={style.actionButtonIcon} />
 			          </ActionButton.Item>
@@ -200,11 +199,6 @@ const style = {
 	},
 	scrollView: {
 	   height: 300,
-	 },
-	 blur: {
-	 	flex: 1,
-	 	backgroundColor: 'transparent',
-	 	justifyContent: 'center'
 	 },
 	 horizontalScrollView: {
 	   height: 160,
