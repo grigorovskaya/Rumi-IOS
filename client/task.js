@@ -82,7 +82,7 @@ const style = {
     margin: 10,
     backgroundColor: "#ffffff",
     borderRadius: 7,
-    borderColor: '#F1C40F',
+    borderColor: '#F6AF10',
     borderWidth: 2,
     shadowColor: "#000000",
     shadowOpacity: 0.6,
