@@ -18,7 +18,14 @@ var Person = t.struct({
   email: t.String,
   password: t.String
 });
-const options = {};
+var options = {
+  fields: {
+    password: {
+      password: true,
+      secureTextEntry: true
+    }
+  }
+};
 
 
 export default class SignUp extends Component {

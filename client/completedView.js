@@ -19,7 +19,6 @@ export default class CompletedView extends React.Component {
   render() {
     return (
       <View style={style.container}>
-        <Text style={style.title} >Completed Tasks</Text>
         <ScrollView automaticallyAdjustContentInsets={false} style={style.scrollView}>{
           this.state.completedTaskList.map( comTask => {
             return (<CompletedDiv  key={comTask.id} task={comTask.task} user={comTask.user} />)}
@@ -45,6 +44,6 @@ const style = {
     marginBottom: 30
   },
   scrollView: {
-     height: 400,
+     flex: 1,
    }
 };

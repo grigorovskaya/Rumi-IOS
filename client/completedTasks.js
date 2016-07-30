@@ -15,9 +15,8 @@ export const CompletedDiv = (props) => {
         <View style={style.container} >
             <Divider  />
             <Image style={style.image} source={{uri:'https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/NotCommons-emblem-copyrighted.svg/50px-NotCommons-emblem-copyrighted.svg.png'}}/>
-            <Text style={style.text} >{props.user.name}</Text>
-            <Text>{"\n"}{"\n"}</Text>
-            <Text style={style.text}>{props.task.name}</Text>
+            <View ><Text style={style.text} >{props.user.name}</Text>
+            <Text >{props.task.name}</Text></View>
             <Divider inset={true} />
         </View> 
     );
@@ -30,7 +29,9 @@ const style = {
     flexDirection: 'row'
   },
   text: {
-    flexDirection: 'column'
+    fontWeight: 'bold'
+    // flexDirection: 'column',
+    // alignSelf: 'flex-start'
   },
   image: {
     width: 50,
