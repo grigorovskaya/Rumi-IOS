@@ -4,6 +4,7 @@ import {
 	View,
     TouchableHighlight, 
 	Text,
+	Image,
 	Button,
 	StyleSheet
 } from 'react-native';
@@ -90,11 +91,15 @@ export default class AddTask extends React.Component {
 	}
 	render() {
 		return (
-			<View style={styles.container}>
+			<View>
+            <Image source={require('./img/back.jpg')} style={styles.back}>
+            <View style={styles.container}>
 			<Form ref='form' type={Task} value={this.state.value} onChange={this.handleTextFieldChange.bind(this)} style={styles.title}/>
 			<TouchableHighlight style={styles.button} onPress={() => this.handleSubmit()}>
 			<Text style={styles.buttonText}>Add</Text>
 			</TouchableHighlight>
+			</View>
+			</Image>
 			</View>
 			);
 	}
@@ -105,7 +110,12 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 50,
     padding: 20,
-    backgroundColor: '#ffffff',
+    backgroundColor: 'transparent',
+  },
+  back: {
+  	flex: 1,
+  	width: null,
+  	height: 700
   },
   title: {
   	fontFamily: 'HelveticaNeue-Light',
