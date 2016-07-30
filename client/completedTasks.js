@@ -26,15 +26,20 @@ const style = {
   container: {
     flexWrap: 'wrap',
     alignItems: 'flex-start',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    margin: 10,
   },
   text: {
-    fontWeight: 'bold'
+    margin : 10
+  },
+  textBold: {
+    fontWeight: 'bold',
+    margin: 10
     // flexDirection: 'column',
     // alignSelf: 'flex-start'
   },
   image: {
-    width: 50,
-    height: 50
+    width: 70,
+    height: 70
   }
 };
